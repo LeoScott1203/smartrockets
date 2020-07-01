@@ -73,9 +73,9 @@ class rocket:
 			self.fitness = 1
 
 		if (self.hit_target):
-			self.fitness = 1000
+			self.fitness = 5000
 
-		return self.fitness ** 2
+		return self.fitness
 
 	def reset(self, c, dna):
 		self.stuck = False
@@ -156,7 +156,7 @@ while 1:
 
 	#create new population
 	for i in range(popSize):
-		randDNA = []
+		newDNA = []
 
 		parent1 = random.choice(genePool)
 		parent2 = random.choice(genePool)
@@ -167,16 +167,15 @@ while 1:
 		for j in range(lifespan):
 			parents = [parent1[j], parent2[j]]
 			_ = random.choice(parents)
-			randDNA.append(_)
+			newDNA.append(_)
 
 		#mutate
 		if random.randint(0, 2) == 0:
 			for j in range(math.floor(lifespan / 20)):
 				randIndex = random.randint(0, lifespan - 1)
-				randDNA.pop(randIndex)
-				randDNA.insert(randIndex, random.uniform(-10, 10))
+				newDNA.pop(randIndex)
+				newDNA.insert(randIndex, random.uniform(-10, 10))
 
-		newDNA = randDNA
 		rockets[i].reset(canvas, newDNA)
 
 	genePool.clear()
