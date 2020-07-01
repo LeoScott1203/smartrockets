@@ -73,9 +73,9 @@ class rocket:
 			self.fitness = 1
 
 		if (self.hit_target):
-			self.fitness = 5000
+			self.fitness = 750
 
-		return self.fitness
+		return self.fitness ** 2
 
 	def reset(self, c, dna):
 		self.stuck = False
@@ -176,6 +176,7 @@ while 1:
 				newDNA.pop(randIndex)
 				newDNA.insert(randIndex, random.uniform(-10, 10))
 
+		#newDNA = randDNA
 		rockets[i].reset(canvas, newDNA)
 
 	genePool.clear()
