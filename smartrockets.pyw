@@ -42,7 +42,7 @@ class rocket:
 
 		self.visual = c.create_line(self.x0, self.y0, self.x1, self.y1, width = rocket.width, fill = "white")
 
-		#test if hit
+		#test collision
 		#side of screen
 		if self.x1 > 500 or self.x1 < 0:
 			self.stuck = True
@@ -176,7 +176,6 @@ while 1:
 				newDNA.pop(randIndex)
 				newDNA.insert(randIndex, random.uniform(-10, 10))
 
-		#newDNA = randDNA
 		rockets[i].reset(canvas, newDNA)
 
 	genePool.clear()
