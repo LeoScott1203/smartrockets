@@ -69,10 +69,10 @@ class rocket:
 		self.fitness = self.fitness - (math.sqrt((endPoint[0] - self.x1) ** 2 + (endPoint[1] - self.y1) ** 2))
 		self.fitness = math.floor(self.fitness)
 
-		if (self.fitness <= 0):
+		if self.fitness <= 0:
 			self.fitness = 1
 
-		if (self.hit_target):
+		if self.hit_target:
 			self.fitness = 750
 
 		return self.fitness ** 2
@@ -144,7 +144,7 @@ while 1:
 
 				all_stuck = False
 
-		if (all_stuck == False):
+		if all_stuck == False:
 			time.sleep(0.01)
 
 	time.sleep(1)
