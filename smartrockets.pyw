@@ -1,7 +1,4 @@
-import os
-import time
-import random
-import math
+import os, time, random, math
 from tkinter import *
 
 random.seed(time.time())
